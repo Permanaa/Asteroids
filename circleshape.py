@@ -20,3 +20,7 @@ class CircleShape(pygame.sprite.Sprite):
 
     def update(self, dt: float) -> None:
         pass
+
+    def collapse_with(self, other: "CircleShape") -> bool:
+        distance = pygame.math.Vector2.distance_to(self.position, other.position)
+        return distance <= (self.radius + other.radius)
